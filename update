@@ -1,0 +1,11 @@
+#!/bin/bash
+
+cd $1
+
+git checkout master
+
+git fetch upstream
+
+git reset --hard upstream/master
+
+git push --force
