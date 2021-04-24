@@ -1,0 +1,20 @@
+#!/usr/bin/expect -f
+
+set timeout -1
+
+set username "ENTER_YOUR_USERNAME"
+set password "ENTER_YOUR_PASSWORD"
+
+lassign $argv arg1
+
+spawn ./push $arg1
+
+expect "Username for 'https://github.com':"
+
+send -- "$username\r"
+
+expect "Password for 'https://$username@github.com':"
+
+send -- "$password\r"
+
+expect eof
